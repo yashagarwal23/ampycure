@@ -9,7 +9,6 @@ kiwisolver==1.0.1
 MarkupSafe==1.1.1
 matplotlib==3.0.3
 numpy==1.16.2
-pkg-resources==0.0.0
 pyAudioAnalysis==0.2.5
 pydub==0.23.1
 pyparsing==2.3.1
