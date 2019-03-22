@@ -21,4 +21,6 @@ def predict():
     return jsonify({"results": results})
 
 
+if __name__ == '__main__':
+    app.run()
 
