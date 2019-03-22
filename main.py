@@ -12,6 +12,10 @@ def autism_check(filepath):
     results['autism'] = str(prediction[0])
 
 
+@app.route('/')
+def index():
+    return "Apmycure Homepage"
+
 @app.route('/check')
 def predict():
     filepath = ""
