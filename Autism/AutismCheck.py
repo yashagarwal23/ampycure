@@ -5,15 +5,13 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 
-def predict(filepath):
+def predict(filename):
     with open('./Autism/model.pkl', 'rb') as f:
         classifier = pickle.load(f)
     sc = StandardScaler()
 
     lab_enc = preprocessing.LabelEncoder()
-
-    analyzed_audio = AudioAnalyze("./Autism/sample.wav")
-    print (analyzed_audio)
+    analyzed_audio = AudioAnalyze('./'+filename)
     print("Audio Analysis Complete..")
 
     check = analyzed_audio.slice_audio_parameters()
