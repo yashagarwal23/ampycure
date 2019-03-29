@@ -7,7 +7,7 @@ class AudioAnalyze:
     def __init__(self, filename):
         [Fs, x] = audioBasicIO.readAudioFile(filename)
         F = audioFeatureExtraction.stFeatureExtraction(
-            np.mean(x, axis=1), Fs, 0.050*Fs, 0.025*Fs)
+            np.mean(x, axis=1) if x.ndim == 2 else x, Fs, 0.050*Fs, 0.025*Fs)
         # print (F[0][1])
         self.input_from_audio = F[0][1]
 
