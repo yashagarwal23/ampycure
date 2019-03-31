@@ -1,4 +1,4 @@
-from Autism.audio_analyzer import AudioAnalyze
+from Depression.audio_analyzer import AudioAnalyze
 from sklearn import preprocessing
 import pickle
 import numpy as np
@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 
 
 def predict(filename):
-    with open('./Autism/model_autism.pkl', 'rb') as f:
+    with open('./Depression/model_depression.pkl', 'rb') as f:
         classifier = pickle.load(f)
     sc = StandardScaler()
 
@@ -20,6 +20,6 @@ def predict(filename):
     #y_train = lab_enc.fit_transform(y_train)
     check = np.reshape(check, (-1, 19))
     prediction = classifier.predict(check)
-    print("Autism : " , prediction)
+    print("Depression : ", prediction)
     return prediction
 
