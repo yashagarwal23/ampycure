@@ -1,6 +1,7 @@
 Click==7.0
 cycler==0.10.0
 eyeD3==0.8.10
+ffprobe==0.5
 Flask==1.0.2
 gunicorn==19.9.0
 itsdangerous==1.1.0
