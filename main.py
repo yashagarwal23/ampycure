@@ -64,12 +64,12 @@ def upload():
     return "upload done"
 
 
-@app.route('/done', methods=['POST'])
+@app.route('/done', methods=['POST', 'GET'])
 def done_func():
     return "true" if done else "false"
 
 
-@app.route('/getresult', methods=['POST'])
+@app.route('/getresult', methods=['POST', 'GET'])
 def return_result():
     global done
     done = False
