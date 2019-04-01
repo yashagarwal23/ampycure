@@ -66,6 +66,8 @@ def done_func():
 
 @app.route('/getresult', methods=['POST'])
 def return_result():
+    global done
+    done = False
     return jsonify(result_list)
 
 
