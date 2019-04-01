@@ -57,6 +57,8 @@ def upload():
     f = request.files['file']
     filename = secure_filename(f.filename)
     f.save(filename)
+    global done
+    done = False
     diagnose_thread = threading.Thread(target=diagnose, args=[filename])
     diagnose_thread.daemon = True
     diagnose_thread.start()
