@@ -109,7 +109,7 @@ def return_result():
     return jsonify(result_list)
 
 
-@app.route('/history', methods=['POST'])
+@app.route('/history', methods=['GET', 'POST'])
 def get_history():
     file_result = file_results.query.filter_by(ip=str(request.remote_addr)).all()
     return jsonify({"file_results": list(map(lambda x: {"filename": x.filename, "Autism": x.Aresult, "Parkinson": x.Presult, "Depression": x.Dresult}, file_result))})
