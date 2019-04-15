@@ -1,39 +1,15 @@
-from flask import Flask, request
+from flask import request
 from flask import jsonify
 from werkzeug.utils import secure_filename
 import threading, os
-from flask_sqlalchemy import SQLAlchemy
-import time
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
-
+from app import app
+from models import db,file_results
 
 done = False
 result_list = [0, 0, 0]
 
-db = SQLAlchemy(app)
 ip = "localhost"
-
-
-class file_results(db.Model):
-    time = db.Column( db.Integer, primary_key = True)
-    ip = db.Column(db.String(16), primary_key=True)
-    filename = db.Column(db.String(100))
-    Aresult = db.Column(db.Integer)
-    Presult = db.Column(db.Integer)
-    Dresult = db.Column(db.Integer)
-
-    def __init__(self, filename, ip, file_result):
-        self.time = int(time.time())
-        self.ip = ip
-        self.filename = filename
-        self.Aresult = file_result[0]
-        self.Presult = file_result[1]
-        self.Dresult = file_result[2]
-
-
-# db.create_all()
 
 
 def autism_check(filename):
